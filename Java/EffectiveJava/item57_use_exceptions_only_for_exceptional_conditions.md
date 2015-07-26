@@ -1,4 +1,6 @@
-### Use exceptions only for exceptional conditions
+### Item57 : Use exceptions only for exceptional conditions
+
+----------
 
 Someday, if you are unlucky, you may stumble across a piece of code that looks something like this:
 

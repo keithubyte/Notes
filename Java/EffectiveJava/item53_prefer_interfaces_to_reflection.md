@@ -1,4 +1,6 @@
-### Prefer interfaces to reflection
+### Item53 : Prefer interfaces to reflection
+
+----------
 
 The *core reflection facility*, `java.lang.reflect`, offers programmatic access to information about loaded classes. Given a `Class` object, you can obtain `Constructor`, `Method`, and `Field` instances representing the constructors, methods, fields of the class represented by the `Class` instance. These objects provide programmatic access to the class's member names, field types, method signatures, and so on.
 
@@ -73,6 +75,8 @@ While this program is just a toy, the technique it demonstrates is very powerful
 At the same time, this program demonstrates two disadvantages of reflection. First, it can generate three runtime errors, all of which would have been compile-time errors if reflective instantiation were not used. Second, it takes about twenty lines of tedious code to generate an instance of the class from its name, whereas a constructor invocation would fit neatly on a single line.
 
 a legitimate, if rare, use of reflection is to manage a class's dependencies on other classes, methods, or fields that may be absent at runtime. This can be useful if you are writing a package that must run against multiple versions of some other package. The technique is to compile your package against the minimal environment required to support it, typically the oldest version ,and to access any newer classes or methods reflectively. To make this work, you have to take appropriate action if a newer class or method that you are attempting to access does not exist at runtime. Appropriate action might consist of using some alternate means to accomplish the same goal or operating with reduced functionality.
+
+#### Summary
 
 In summary, reflection is a powerful facility that is required for certain sophisticated system programming tasks, but it has many disadvantages. If you are writing a program that has to work with classes unknown at compile time, you should, if at all possible, use reflection only to instantiate objects, and access the objects using some interface or superclass that is known at compile time.
 

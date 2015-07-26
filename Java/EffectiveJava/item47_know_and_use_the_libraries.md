@@ -1,4 +1,6 @@
-### Know and use the libraries
+### Item47 : Know and use the libraries
+
+----------
 
 There are severals advantages when using the libraries:
 

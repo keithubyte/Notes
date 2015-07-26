@@ -1,4 +1,6 @@
-# Use interfaces only to define types
+### Item 19 : Use interfaces only to define types
+
+----------
 
 When a class implements an interface, ther interface serves as a *type* that can be used to refer to instances of the class. That a class implements an interface should therefore say something about what a client can do with instances of the class. It is inappropriate to define an interface for any purpose.
 
@@ -28,5 +30,7 @@ public class PhysicalConstants {
     public static final double ELECTRON_MASS = 9.10938188e-31;
 }
 ```
+
+#### Summary
 
 In summary, interfaces should be used to define types. They should not be used to export constants.

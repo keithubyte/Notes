@@ -1,4 +1,6 @@
-# Use bounded wildcards to increase API flexibility
+### Item28 : Use bounded wildcards to increase API flexibility
+
+----------
 
 Parameterized types are *invariant*. In other words, for any two distinct types `Type1` and `Type2`， `List<Type1>` is neither a subtype nor a supertype of `List<Type2>`. While it is counterintuitive that `List<String>` is not a subtype of `List<Object>`, it really does make sense. You can put any object into a `List<Object>`, but you can put only strings into a `List<String>`.
 
@@ -91,5 +93,7 @@ Here is a mnemonic to help you remember which wildcard type to use:
 > **PECS stands for producer-extends, consumer-super.**
 
 In other words, if a parameterized type represents a `T` producer, use `<? extends T>`; if it represents a `T` consumer, use `<? super T>`.
+
+#### Summary
 
 In summary, using wildcard types in your APIs, while tricky, makes the APIs far more flexible. If you write a library that will be widely used, the proper use of wildcard types should be considered mandatory. Remember the basic rule: producer-extends, consumer-super. And remember that all comparables and comparators are consumers.

@@ -1,4 +1,6 @@
-### Refer to objects by their interfaces
+### Item52 : Refer to objects by their interfaces
+
+----------
 
 **If appropriate interface types exist, then parameters, return values, variables, and fields should all be declared using interface types. If you get into the habit of using interfaces as types, your program will be much more flexible.**
 

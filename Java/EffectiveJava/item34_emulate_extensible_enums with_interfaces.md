@@ -1,4 +1,6 @@
-# Emulate extensible enums with interfaces
+### Item34 : Emulate extensible enums with interfaces
+
+----------
 
 For the most part, extensibility of enums turns out to be a bad idea. It is confusing that elements of an extension type are instances of the base type and not vice versa. There is no good way to enumerate over all of the elements of a base type and its extension. Finally, extensibility would complicate many aspects of the deign and implementation.
 
@@ -77,5 +79,7 @@ public enum ExtendedOperation implements Operation {
 ```
 
 Now, you can use your new operations anywhere you could use the basic operations, provided that APIs are written to take the interface type, not the implementation.
+
+#### Summary
 
 In summary, **while you cannot write an extensible enum type, you can emulate it by writing an interface to go with a baisc enum type that implements the interface.** This allows clients to write their own enums that implement the interface. These enums can be used wherever the basic enum type can be used, assuming APIs are written in terms of the interface.

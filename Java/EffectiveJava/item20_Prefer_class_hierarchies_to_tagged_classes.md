@@ -1,4 +1,6 @@
-# Prefer class hierarchies to tagged classes
+### Item20 : Prefer class hierarchies to tagged classes
+
+----------
 
 Occasionlly you may run across a class whose instances come in two or more flavors and contain a *tag* field indicating the flavor of the instance. For example:
 
@@ -85,6 +87,8 @@ class Rectangle extends Figure {
 
 This class hirearchy corrects every shortcomming of tagged classes noted previously. The code is simple and clear, containing none of the boilerplate found in the original. The implementation of each flavor is allotted its own class, and none of these classes are encumbered by irrelevant data fields.
 
-Another advantage of class hierachies is that they can be made to reflect natural hierarchical relationships among types, allowing for increased flexibility and better compile-time checking.
+Another advantage of class hierarchies is that they can be made to reflect natural hierarchical relationships among types, allowing for increased flexibility and better compile-time checking.
+
+#### Summary
 
 In summary, tagged classes are seldom appropriate. If you are tempted to write a class with an explicit tag field, think about whether the tag could be eliminated and the class replaced by hierarchy. When you encounter an existing class with a tag field, consider refactoring it into a hierarchy.

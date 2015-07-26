@@ -1,4 +1,6 @@
-### Use lazy initialization judiciously
+### Item71 : Use lazy initialization judiciously
+
+----------
 
 As is the case for most optimizations, the best advice for lazy initialization is "don't do it unless you need to". Lazy initialization is a double-edged sword. It decreases the cost of initializing a class or creating an instance, at the expense of increasing the cost of accessing the lazily initialized field.
 
@@ -83,5 +85,7 @@ private FieldType getField() {
 All of the initialization techniques discussed in this item apply to primitive fields as well as object reference fields. When the double-check or single-check idiom is applied to a numerical primitive field, the field's value is checked against 0 rather than `null`.
 
 If you don't care whether every thread recalculates the value of a field, and the type of the field is a primitive other than `long` or `double`, then you may choose to remove the `volatile` modifier from the field declaration in the single-check idiom. This variant is known  as *racy single-check idiom*. It speeds up field access on some architectures, at the expense of additional initializations. This is definitely an exotic technique, not for everyday use. It is, however, used by `String` instances to cache their hash codes.
+
+#### Summary
 
 In summary, you should initialize most fields normally, not lazily. If you must initialize a field lazily in order to achieve your performance goals, or to break a harmful initialization circularity, then use the appropriate lazy initialization technique. For instance fields, it is the double-check idiom; for static fields, the lazy initialization holder class idiom. For instance fields that can tolerate repeated initialization, you may also consider the single-check idiom.

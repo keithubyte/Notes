@@ -1,4 +1,6 @@
-### Consider using a custom serialized form
+### Item75 : Consider using a custom serialized form
+
+----------
 
 **Do not accept the default serialized form without first considering whether it is appropriate**. Accepting the default serialized form should be a conscious decision that this encoding is reasonable from the standpoint of flexibility, performance, and correctness. Generally speaking, you should accept the default serialized form only if it is largely identical to the encoding that you would choose if you were designing a custom serialized form.
 
@@ -123,5 +125,7 @@ public class StringList implements Serializable{
 Note that the first thing `writeObject` does is to invoke `defaultWriteObject`, and the first thing `readObject` does is to invoke `defaultReadObject`, even though all of `StringList`'s fields are transient. **If all instance fields are `transient`, it is technically permissible to dispense with invoking `defaultWriteObject` and `defaultReadObject`, but it is no recommended**. Even if all instance fields are `transient`, invoking `defaultWriteObject` affects the serialized form, resulting in greatly enhanced flexibility. The resulting serialized form makes it possible to add nontransient instance fields in a later release while preserving backward and forward compatibility. 
 
 **Regardless of what serialized form you choose, declare an explicit serial version UID in every serializable class you write**. This eliminates the serial version UID as a potential source of incompatibility. There is also a small performance benefit. If no serial version UID is provided, an expensive computation is required to generate one at runtime.
+
+#### Summary
 
 To summarize, when you have decided that a class should be serializable, think hard about what the serialized form should be. Use the default serialized form only if it is a reasonable description of the logical state of the object; otherwise design a custom serialized form that aptly describes the object.

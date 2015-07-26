@@ -1,4 +1,6 @@
-# Use enums instead of int constants
+### Item30 : Use enums instead of int constants
+
+----------
 
 The basic idea behind Java's enum types is simple: they are classes that export one instance for each enumeration constant via a public final field. Enum types are effectively final, by virtue of haveing no accessible constructors. Because clients can neither create instances of an enum type nor extend it, there can be no instances but the declared enum constants.
 
@@ -289,5 +291,7 @@ public enum Operation {
 }
 
 ```
+
+### Summary
 
 In summary, the advantages of enum types over int constants are compelling. Enums are far more readable, safer, and more powerful. Many enums require no explicit constructor or members, but many otehrs benefit from associating data with each constant and providing methods whose behavior is affected by this data. Far fewer enums benefit fro associating multiple behaviors with a single method. In this relatively rare case, prefer constant-specific mehtods to enums that switch on their own values. Consider the strategy enum pattern if multiple enum constants share common behaviors.

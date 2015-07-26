@@ -1,4 +1,6 @@
-### Make defensive copies when needed
+### Item39 : Make defensive copies when needed
+
+----------
 
 Java is a safe language, it is possible to write classes and to know with certainty that their invariants will remain true, no matter what happens in any other part of system. This is not possible in languages, such as C and C++, that treat all of memory as one giant array.
 
@@ -75,5 +77,7 @@ Defensive copying of parameters is not just for immutable classes. Anytime you w
 Arguably, the real lesson in all of this is that you should, where possible, use immutable objects as components of your objects, so that you don't have to worry about defensive copying. In the case of our `Period` example, it is worth pointing out that experienced programmers often use the primitive `long` returned by `Date.getTime()` as an internal time representation instead of using a `Date` reference. They do this primarily because `Date` is mutable.
 
 Defensive copying can have a performance penalty associated with it and isn't always justified. If a class trusts it caller not to modify an internal component, perhaps because the class and its client are both part of the same package, then it may be apropriate to dispense with defensive copying. Under these circumstances, the class documentation must make it clear that the caller must not modify the affected parameters or return values.
+
+#### Summary
 
 In summary, if a class has mutable components that it gets from or returns to its clients, the class must defensively copy these components. If the cost of the copy would be prohibitive and the class trusts its clients not to modify the components inappropriately, then the defensive copy may be replaced by documentation outlining the client's responsibility not to modify the affected components.

@@ -1,4 +1,6 @@
-### Implement Serializable judiciously
+### Item74 : Implement Serializable judiciously
+
+----------
 
 Serialization provides the standard wire-level object representation for remote communication, and the standard persistent data format for the JavaBeans component architecture.
 

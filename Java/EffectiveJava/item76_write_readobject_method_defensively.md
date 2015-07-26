@@ -1,4 +1,6 @@
-### Write readObject methods defensively
+### Item76 : Write readObject methods defensively
+
+----------
 
 Consider the following class:
 
@@ -174,6 +176,8 @@ private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundEx
 	}
 }
 ```
+
+#### Summary
 
 To summarize, anytime you write a `readObject` method, adopt the mind-set that you are writing a public constructor that must produce a valid instance regardless of what byte stream it is given. Do not assume that the byte stream represents an actual serialized instance. While the examples in this item concern a class that uses the default serialized from, all of the issues that were raised apply equally to classes with custom serialized forms. Here, in summary form, are the guidelines for writing a bulletproof `readObject` method:
 

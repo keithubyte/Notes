@@ -1,4 +1,6 @@
-# Use function objects to represent strategies
+### Item21 : Use function objects to represent strategies
+
+----------
 
 Some languages support *function pointer, delegates, lambda expressions* or similar facilities that allow programs to store and transimt the ability to invoke a particular function. Such facilities are typically used to allow the caller of a function to specialize its behavior by passing in a second function. For example, the *qsort* function in C's standard library takes a pointer to a *comparator* function, which *qsort* uses to compare the elements to be stored. The comparator function takes two parameters, each of which is a pointer to an element.
 
@@ -51,4 +53,6 @@ public class FunctionObjectDemo {
 }
 ```
 
-To summarize, a primary use of function pointers is to implement the *Strategy Pattern*. To implement this pattern in Java, declare an interface to represent the strategy, and a class that implements this interface for each concrete strategy. When a concrete strategy is used only once, it is typically declared and instantiated as an anonymous class. When a concrete strategy is designed for repeted use, it is generally implemented as a privated static member class and exproted in a public static final field whose type is the strategy interface.
+#### Summary
+
+To summarize, a primary use of function pointers is to implement the *Strategy Pattern*. To implement this pattern in Java, declare an interface to represent the strategy, and a class that implements this interface for each concrete strategy. When a concrete strategy is used only once, it is typically declared and instantiated as an anonymous class. When a concrete strategy is designed for repeated use, it is generally implemented as a private static member class and exported in a public static final field whose type is the strategy interface.

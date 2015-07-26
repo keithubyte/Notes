@@ -1,4 +1,6 @@
-### Minimize the scope of local variables
+### Item45 : Minimize the scope of local variables
+
+----------
 
 **The most powerful technique for minimizing the scope of a local variable is to declare it where it is first used.**
 

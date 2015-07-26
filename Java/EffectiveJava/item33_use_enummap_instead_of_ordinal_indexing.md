@@ -1,4 +1,6 @@
-# Use EnumMap instead of oridinal indexing
+### Item33 : Use EnumMap instead of ordinal indexing
+
+----------
 
 Occasionally you may see code that uses the `ordinal` method to index into an array. Here is an example:
 
@@ -120,5 +122,7 @@ public enum Phase {
 
 }
 ```
+
+#### Summary
 
 In summary, **it is rarely apropriate to use ordinals to index arrays: use EnumMap instead.** If the reletionship that you are representing is multidimensional, use `EnumMap<..., EnumMap<...>>`. This is a special case of the general principle that application programmers should rarely, if ever, use `Enum.ordinal`.

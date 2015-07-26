@@ -1,4 +1,6 @@
-### Use overloading judiciously
+### Item41 : Use overloading judiciously
+
+----------
 
 The following program is a well-intentioned attempt to classify collections according to whether they are sets, lists, or some other kind of collection:
 
@@ -80,5 +82,7 @@ for(int i = 0; i < 3; i++) {
 ```
 
 So, adding generics and autoboxing to the language damaged the `List` interface.
+
+#### Summary
 
 To summarize, just because you can overload methods doesn't mean you should. You should generally refrain from overloading methods with multiple signatures that have the same number of parameters. In some cases, especially where constrcutors are involved, it may be impossible to follow this advice. In that case, you should at least avoid situations where the same set of parameters can be passed to different overloadings by the addition of casts. If such a situation cannot be avoided, for example, because you are retrofitting an existing class to implement a new interface, you should ensure that all overloadings behave identically when passed the same parameters. If you fail to do this, programmers will be hard pressed to make effective use of the overloaded method or constructor, and they won't understand why it doesn't work.

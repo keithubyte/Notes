@@ -1,4 +1,6 @@
-### Beware the performance of string concatenation
+### Item51 : Beware the performance of string concatenation
+
+----------
 
 The string concatenation operator(+) is a convenient way to combine a few strings into one. It is fine for generating a single line of output or for constructing the string representation of a small, fixed-size object, but it does not scale. **Using the string concatenation operator repeatedly to concatenate *n* strings requires time quadratic in *n***. It is an unfortunate consequence of the fact that strings are *immutable*. When two strings are concatenated, the contents of both are copied.
 

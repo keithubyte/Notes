@@ -1,4 +1,6 @@
-# Check parameters for validity
+### Item38 : Check parameters for validity
+
+----------
 
 Most methods and constructors have some restrictions on what values may be passed into their parameters.
 
@@ -39,5 +41,7 @@ private static void sort(long a[], int offset, int length) {
 In essence, these assertions are claims that the asserted condition will be true, regardless of how the enclosing package is used by its clients. Unlike normal validity checks, assertions throw `AssertionError` if they fail. And unlike normal validity checks, they have no effect and essentially no cost unless you enable them, which you do by passing the `-ea` flag to the java interpreter.
 
 There are exceptions to the rule that you should check a method's parameters before performing its computation. An important exception is the case in which the validity check would be **expensive** or **impractical** and the validity check is performed implicitly in the process of doing the computation. For example, consider a method that sorts a list of objects, such as `Collections.sort(List)`. All of the objects in the list must be mutually comparable. In the process of sorting the list, every object in the list will be compared to some other object in the list. If the objects aren't mutually comparable, one of these comparisons will throw a `ClassCastException`, which is exactly what the `sort` method should do. Therefore, there would be little point in checking ahead of time that the elements in the list were mutually comparable.
+
+#### Summary
 
 To summarize, each time you write a method or constructor, you should think about what restrictions exist on its parameters. You should document these restrictions and enforce them with explicit checks at the beginning of the method body. It is important to get into the habit of doing this. The modest work that it entails will be paid back with interest the first time a validity check fails.

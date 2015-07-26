@@ -1,4 +1,6 @@
-# Favor generic types
+### Item26 : Favor generic types
+
+----------
 
 It is generally not too difficult to parameterize your collection declarations and make use of the generic types and methods provided by the JDK.
 
@@ -117,5 +119,7 @@ public class Stack<E> {
 ```
 
 Which of the two techniques you choose for dealing with the generic array creation error is largely a matter of taste. All other things being equal, it is riskier to suppress an unchecked cast to an array type than to a scalar type, which would suggest the second solution. But in a more realistic generic class than Stack, you would probably be reading from the array at many points in the code, so choosing the second solution would require many casts to `E` rather than a single cast to `E[]`, which is why the first solution is used more commonly.
+
+#### Summary
 
 In summary, generic type are safer and easier to use than types that require casts in client code. When you design new types, make sure that they can be used without such casts. This will often mean making the type generic. Generify your existing types as time permits. This will make life easier for new users of these type without breaking existing clients.

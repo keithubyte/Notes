@@ -1,4 +1,6 @@
-### Synchronize access to shared mutable data
+### Item66 : Synchronize access to shared mutable data
+
+----------
 
 The *synchronized* key word ensures that only a single thread can execute a method or block at one time. Many programmers think of synchronization solely as a means of mutual exclusion, to prevent an object from being observed in an inconsistent state while it's being modified by another thread.
 
@@ -138,5 +140,7 @@ public static long generateSerialNumber() {
 The best way to avoid the problems discussed in this item is not to share mutable data. Either share immutable data, or don't share at all. In other words, **confine mutable data to a single thread**.
 
 It is acceptable for one thread to modify a data object for a while and then to share it with other threads, synchronizing only the act of sharing the object reference. Other threads can then read the object without further synchronization, so long as it isn't modified again. Such objects are said to be **effectively immutable**. Transferring such an object reference from one thread to others is called **safe publication**. There are many ways to safely publish an object reference: you can store it in a static field as part of class initialization; you can store it in a volatile field, a final field, or a field that is accessed with normal locking; or you can put it into a concurrent collection.
+
+#### Summary
 
 In summary, **when multiple threads share mutable data, each thread that reads or writes the data must perform synchronization**. Without synchronization, there is no guarantee that one thread's changes will be visible to another. The penalties for failing to synchronize shared mutable data are liveness and safety failures. These failures are among the most difficult to debug. They can be intermittent and timing-dependent, and program behavior can vary radically from one VM to another. If you need only inter-thread communication, and not mutual exclusion, the `volatile` modifier is an acceptable form of synchronization,  but it can be tricky to use correctly.

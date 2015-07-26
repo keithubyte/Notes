@@ -1,4 +1,6 @@
-### Document thread safety
+### Item70 : Document thread safety
+
+----------
 
 You might hear it said that you can tell if a method is thread-safe by looking for the `synchronized` modifier in its documentation. This is wrong on several counts. In normal operation, Javadoc does not include the `synchronized` modifier in its output, and with good reason. **The presence of the `synchronized` modifier in a method declaration is an implementation detail, not a part of its exported API**. It does not reliably indicate that a method is thread-safe.
 

@@ -1,4 +1,6 @@
-# Use EnumSet instead of bit fields
+### Item32 : Use EnumSet instead of bit fields
+
+----------
 
 If the elements of an enumerated type are sued primarily in sets, it is traditional to use the **int enum pattern**, assigning a different power of 2 to each constant:
 
@@ -45,5 +47,7 @@ public class Text {
 ```java
 text.applyStyles(EnumSet.of(Style.BOLD, Style.ITALIC));
 ```
+
+#### Summary
 
 In summary, **just because an enumerated type will be used in sets, there is no reason to represent it with bit fields**.

@@ -1,4 +1,6 @@
-### Prefer for-each loops to traditional for loops
+### Item46 : Prefer for-each loops to traditional for loops
+
+----------
 
 The `for-each` loop provides compelling advantages over the traditional `for` loop in clarity and bug prevention, with no performance penalty. You should use it wherever you can. Unfortunately, there are three common situations where you can't use a `for-each` loop:
 

@@ -1,4 +1,6 @@
-### Return empty arrays or collections, not nulls
+### Item43 : Return empty arrays or collections, not nulls
+
+----------
 
 It is not uncommon to see methods that look something like this:
 
@@ -67,5 +69,7 @@ public List<Cheese> getCheeseList() {
 	}
 }
 ```
+
+#### Summary
 
 In summary, there is no reason ever to return null from an array-or-collection-valued method instead of returning an empty array or collection.

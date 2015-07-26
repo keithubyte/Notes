@@ -1,4 +1,6 @@
-### Include failure-capture information in detail messages
+### Item63 : Include failure-capture information in detail messages
+
+----------
 
 **To capture the failure, the detail message of an exception should contain the values of all parameters and fields that "contributed to the exception"**. For example, the detail message of an `IndexOutOfBoundsException` should contain the lower bound, the upper bound, and the index value that failed to lie between the bounds. This information tells a lot about the failure.
 

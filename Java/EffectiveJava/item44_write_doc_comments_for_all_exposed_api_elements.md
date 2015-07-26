@@ -1,4 +1,6 @@
-### Write doc comments for all exposed API elements
+### Item44 : Write doc comments for all exposed API elements
+
+----------
 
 If an API is to be usable, it must be documented. If you are not familiar with the doc comment conventions, you should learn them. These conventions are described on [How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/articles/java/index-137868.html).
 
@@ -41,5 +43,7 @@ Don't forget that you must take special action to generate documentation contain
 ```
 
 produces the documentation: *"The triangle inequality is |x + y| < |x| + |y|."*
+
+#### Summary
 
 To summarize, documentation comments are the best, most effective way to document your API. Their use should be considered mandatory for all exported API elements. Adopt a consistent style that adheres to standard conventions. Remember that arbitrary `HTML` is permissible within documentation comments and that `HTML` metacharacters must be escaped.

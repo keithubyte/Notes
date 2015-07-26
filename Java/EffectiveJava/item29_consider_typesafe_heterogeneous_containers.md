@@ -1,4 +1,6 @@
-# Consider typesafe heterogenrous containers
+### Item29 : Consider typesafe heterogeneous containers
+
+----------
 
 The most common use of generics is for collections, such `Set` and `Map`, and single-element containers, such as `TheadLocal` and `AtomicReference`. In all of these uses, it is the container that is parameterized. This limits you to a fixed number of type parameters per container. Normally that is exactly what you want. A `Set` has a single type parameter, representing its element type; a `Map` has two, representing its key and value types; and so forth.
 
@@ -90,5 +92,7 @@ static Annotation getAnnotation(AnnotatedElement element, String annotationTypeN
     return element.getAnnotation(annotationType.asSubclass(Annotation.class));
 }
 ```
+
+#### Summary
 
 In summary, the normal use of generics, exemplified by the collection APIs, restricts you to a fixed number of type parameters per container. You can get around this restriction by placing the type parameter on the key rather than the container. You can use `Class` objects as keys for such typesafe heterogeneous containers. A `Class` object used in this fashion is called a type token. You can also use a custom key type. For example, you could have a `DatabaseRow` type representing a database row, and a generic type `Column<T>` as its key.

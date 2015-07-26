@@ -1,4 +1,6 @@
-### Consider serialization proxies instead of serialized instances
+### Item78 : Consider serialization proxies instead of serialized instances
+
+----------
 
 The serialization proxy pattern is reasonably straightforward. First, design a private static nested class of the serializable class that concisely represents the logical state of an instance of the enclosing class. This nested class, known as the *serialization proxy*, should have a single constructor, whose parameter type is the enclosing class. This constructor merely copies the data from its argument: it need not do any consistency checking or defensive copying. By design, the default serialized form of the serialization proxy is the perfect serialized form of the enclosing class. Both the enclosing class and its serialization proxy must be declared to implement `Serializable`.
 
@@ -76,5 +78,7 @@ Like the defensive copying approach, the serialization proxy approach stops the 
 The serialization proxy pattern has two limitations. It is not compatible with classes that are extendable by their clients. Also, it is not compatible with some classes whose object graphs contain circularities: if you attempt to invoke a method on an object from within its serialization proxy's `readResolve` method, you'll get a `ClassCastException`, as you don't have the object yet, only its serialization proxy.
 
 Finally, the added power and safety of the serialization proxy pattern are not free. On my machine, it is 14 percent more expensive to serialize and deserialize `Period` instances with serialization proxies that it is with defensive copying.
+
+#### Summary
 
 In summary, consider the *serialization proxy pattern* whenever you find yourself having to write a `readObject` or `writeObject` method on a class that is not extendable by its clients. This pattern is perhaps the easiest way to robustly serialize objects with nontrivial invariants.

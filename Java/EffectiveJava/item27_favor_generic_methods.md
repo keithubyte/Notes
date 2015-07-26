@@ -1,4 +1,6 @@
-# Favor generic methods
+### Item27 : Favor generic methods
+
+----------
 
 Static utility methods are particularly good candidates for generification. For example:
 
@@ -86,5 +88,7 @@ public static void main(String[] args) {
     }
 }
 ```
+
+#### Summary
 
 In summary, generic methods, like generic types, are safer and easier to use than mehtods that require theri clients to cast input parameters and return values. Like types, you should make sure that your new methods can be used without casts, which will often mean making generic. And like types, you should generify your existing methods to make life easier for new user without breaking existing clients.

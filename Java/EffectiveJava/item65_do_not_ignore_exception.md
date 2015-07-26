@@ -1,4 +1,6 @@
-### Don't ignore exceptions
+### Item65 : Don't ignore exceptions
+
+----------
 
 **An empty `catch` block defeats the purpose of exceptions**, which is to force you to handle exceptional conditions. Ignoring an exception is analogous to ignoring a fire alarm - and turing it off so no one else gets a chance to see if there's a real fire. You may get away with it, or the results may be disastrous. Whenever you see an empty `catch` block, alarm bells should go off in your head. **At the very least, the `catch` block  should contain a comment explaining why it is appropriate to ignore the exception**.
 

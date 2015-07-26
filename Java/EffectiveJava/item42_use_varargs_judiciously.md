@@ -1,4 +1,6 @@
-### Use varargs judiciously
+### Item42 : Use varargs judiciously
+
+----------
 
 In release 1.5, varargs methods, formally known as *variable arity methods*, were added to the language. Varargs methods accept zero or more arguments of a specified type. Sometimes it's appropriate to write a method that requires `one or more` arguments of some type, rather than `zero or more`.
 
@@ -61,5 +63,7 @@ public void foo(int a1, int a2, int a3, int... rest){}
 ``` 
 
 Now you know that you'll pay the cost of the array creation only in the 5% of all invocations where the number of parameters exceeds three. Like most performance optimizations, this technique usually isn't appropriate, but when it is, it's a lifesaver.
+
+#### Summary
 
 In summary, varargs methods are a convenient way to define methods that require a variable number of arguments, but they should not be overused. The can produce confusing results if used inappropriately.

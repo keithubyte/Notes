@@ -1,4 +1,6 @@
-### Avoid excessive synchronization
+### Item67 : Avoid excessive synchronization
+
+----------
 
 **To avoid liveness and safety failures, never cede control to the client within a synchronized method or block**. In other words, inside a synchronized region, do not invoke a method that is designed to be overridden, or one provided by a client in the form of a function object. From the perspective of the class with the synchronized region, such methods are *aline*. The class has no knowledge of what the method does and has no control over it. Depending on what an alien method does, calling it from a synchronized region can cause exceptions, deadlocks, or data corruption.
 
@@ -122,5 +124,7 @@ set.addObserver(n)	set.addObserver(new SetObserver<Integer>)() {
 ```
 
 This time we don't get an exception; we get a deadlock. The background thread calls `s.removeObserver`, which attempts to lock `observers`, but it can't acquire the lock, because the main thread already has the lock. All the while, the main thread is waiting for the background thread to finish removing the observer, which explains the deadlock.
+
+#### Summary
 
 In summary, to avoid deadlock and data corruption, never call an alien method from within a synchronized region. More generally, try to limit the amount of work that you do from within synchronized regions. **As a rule, you should do as little work as possible inside synchronized regions**.When you are designing a mutable class, think about whether it should do its own synchronization. 

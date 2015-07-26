@@ -1,4 +1,6 @@
-### Avoid unnecessary use of checked exceptions
+### Item59 : Avoid unnecessary use of checked exceptions
+
+----------
 
 One technique for turning a checked exception into an unchecked exception is to break the method that throws the exception into two methods, the first of which returns a `boolean` that indicates whether the exception would be thrown. This API refactoring transforms the calling sequence from this:
 
